@@ -14,7 +14,6 @@ httptools==0.8.0
 httpx==0.28.1
 idna==3.18
 iniconfig==2.3.0
-mysqlclient==2.2.8
 packaging==26.2
 pluggy==1.6.0
 pycparser==3.0
