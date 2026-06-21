@@ -1,0 +1,86 @@
+{
+  "recipes": [
+    {
+      "name": "Egg Sauce with Rice",
+      "description": "A classic Nigerian breakfast staple of soft scrambled eggs simmered in a rich tomato and palm oil sauce, served over steamed white rice.",
+      "used_ingredients": ["eggs", "tomatoes", "onions", "palm oil", "scotch bonnet", "rice"],
+      "missing_ingredients": [],
+      "match_percentage": 100,
+      "prep_time_minutes": 25,
+      "instructions": [
+        "Rinse the rice thoroughly and cook in salted boiling water for 18 minutes until tender, then drain and set aside.",
+        "Heat palm oil in a pan over medium heat until it clears slightly, then add finely chopped onions and fry for 3 minutes until soft.",
+        "Blend the tomatoes and scotch bonnet together, add to the pan, and fry the sauce for 8 minutes until the raw tomato smell is gone and the oil rises to the top.",
+        "Beat the eggs lightly with a pinch of salt, pour into the tomato sauce, and stir gently over low heat until the eggs are just set but still soft.",
+        "Taste and adjust seasoning, then serve the egg sauce over the cooked rice."
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "name": "Fried Egg and Tomato Stew",
+      "description": "Pan-fried eggs nestled in a spicy tomato and onion stew cooked in palm oil — a quick, satisfying Nigerian dish eaten with bread or plantain.",
+      "used_ingredients": ["eggs", "tomatoes", "onions", "palm oil", "scotch bonnet"],
+      "missing_ingredients": [],
+      "match_percentage": 100,
+      "prep_time_minutes": 20,
+      "instructions": [
+        "Roughly chop the tomatoes, onions, and scotch bonnet, then blend coarsely so the sauce retains some texture.",
+        "Heat palm oil in a wide frying pan over medium heat, add the blended mixture, and fry for 10 minutes, stirring occasionally, until the stew thickens and darkens.",
+        "Season the stew with salt, create small wells in the sauce, and crack one egg into each well.",
+        "Cover the pan with a lid and cook on low heat for 3 to 4 minutes until the egg whites are set but the yolks remain slightly runny.",
+        "Remove from heat immediately and serve straight from the pan with bread, fried plantain, or yam."
+      ],
+      "difficulty": "easy"
+    },
+    {
+      "name": "Tomato Fried Rice",
+      "description": "Nigerian-style fried rice tossed in a tomato and scotch bonnet base with eggs scrambled through — bright, spicy, and ready in under 30 minutes.",
+      "used_ingredients": ["rice", "eggs", "tomatoes", "onions", "palm oil", "scotch bonnet"],
+      "missing_ingredients": ["mixed vegetables"],
+      "match_percentage": 86,
+      "prep_time_minutes": 30,
+      "instructions": [
+        "Cook the rice until just done (slightly firm), spread it on a tray, and leave to cool completely — day-old rice works best as it fries without clumping.",
+        "Blend the tomatoes and scotch bonnet into a smooth purée, then fry the purée in a hot pan with a little palm oil for 6 minutes until reduced and no longer watery.",
+        "Push the tomato mixture to the side of the pan, add a splash more palm oil, pour in the beaten eggs, and scramble them until just set before combining with the tomato.",
+        "Add the chopped onions and stir-fry for 2 minutes, then add the cooled rice and toss everything together over high heat for 4 minutes until the rice is evenly coated and slightly caramelised.",
+        "Taste, adjust salt, and serve hot — garnish with sliced spring onions if available."
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "name": "Jollof Rice",
+      "description": "The iconic West African party rice: long-grain rice slow-cooked in a smoky, spiced tomato base with palm oil and scotch bonnet for deep flavour.",
+      "used_ingredients": ["rice", "tomatoes", "onions", "palm oil", "scotch bonnet"],
+      "missing_ingredients": ["tomato paste", "chicken stock", "seasoning cubes"],
+      "match_percentage": 62,
+      "prep_time_minutes": 50,
+      "instructions": [
+        "Blend the tomatoes, scotch bonnet, and half the onions into a smooth purée.",
+        "Heat palm oil in a heavy-bottomed pot over medium heat, fry the remaining chopped onions for 3 minutes, then pour in the blended tomato purée and cook uncovered for 15 minutes, stirring regularly, until the sauce is thick and the oil floats on top.",
+        "Pour in chicken stock (or water as a substitute), stir well, bring to a boil, then season with salt and any available seasoning.",
+        "Wash the rice until the water runs clear, stir it into the tomato base, and add just enough liquid to sit 2 cm above the rice.",
+        "Cover tightly with foil and a lid, reduce the heat to low, and cook for 25 minutes without lifting the lid — the steam creates the signature smoky bottom crust.",
+        "Fluff gently, taste for seasoning, and serve with fried chicken, plantain, or coleslaw."
+      ],
+      "difficulty": "medium"
+    },
+    {
+      "name": "Egusi Soup",
+      "description": "A rich and hearty Nigerian soup made from ground melon seeds, leafy greens, and assorted meat, thickened with egusi and loaded with traditional flavour.",
+      "used_ingredients": ["palm oil", "onions", "scotch bonnet"],
+      "missing_ingredients": ["egusi (ground melon seeds)", "crayfish", "stockfish", "smoked fish", "beef", "ugu leaves", "seasoning cubes"],
+      "match_percentage": 30,
+      "prep_time_minutes": 70,
+      "instructions": [
+        "Season and parboil the beef and stockfish with onions, salt, and seasoning cubes until tender, reserving the stock.",
+        "Mix the ground egusi with a small amount of water to form a thick paste, then fry it in hot palm oil in a large pot for 5 minutes, stirring continuously to prevent burning.",
+        "Add the reserved meat stock, blended scotch bonnet and onions, crayfish, and smoked fish to the pot, stir well, and simmer for 15 minutes until the egusi is fully cooked and the oil rises.",
+        "Add the cooked beef and stockfish, stir to combine, then taste and adjust seasoning.",
+        "Add the washed and roughly chopped ugu leaves, stir in gently, cook for 2 more minutes — do not overcook the greens.",
+        "Serve hot with pounded yam, eba, or fufu."
+      ],
+      "difficulty": "hard"
+    }
+  ]
+}
