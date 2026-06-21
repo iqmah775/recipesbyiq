@@ -61,8 +61,7 @@ function Hero({
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: isMobile ? '110px 24px 80px' : '90px 24px 80px',
-      textAlign: 'center',
+      padding: isMobile ? '140px 24px 80px' : '100px 24px 80px',      textAlign: 'center',
     }}>
       {/* Hero text block: badge + heading + subheading */}
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
