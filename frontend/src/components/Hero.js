@@ -61,7 +61,7 @@ function Hero({
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: isMobile ? '100px 24px 80px' : '120px 24px 80px',
+      padding: isMobile ? '110px 24px 80px' : '90px 24px 80px',
       textAlign: 'center',
     }}>
       {/* Badge */}
