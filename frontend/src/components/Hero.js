@@ -64,57 +64,61 @@ function Hero({
       padding: isMobile ? '110px 24px 80px' : '90px 24px 80px',
       textAlign: 'center',
     }}>
-      {/* Badge */}
-      <div style={{
-        color: '#F4A623',
-        fontFamily: 'Inter, sans-serif',
-        fontWeight: 500,
-        fontSize: 13,
-        letterSpacing: 2,
-        textTransform: 'uppercase',
-        background: 'rgba(244,166,35,0.15)',
-        border: '1px solid rgba(244,166,35,0.3)',
-        borderRadius: 20,
-        padding: '6px 16px',
-        marginBottom: 28,
-      }}>
-        🇳🇬 Nigerian Recipe Intelligence
-      </div>
-
-      {/* Heading */}
-      <h1 style={{ lineHeight: 1.1 }}>
-        <span style={{
-          display: 'block',
-          fontFamily: 'Poppins, sans-serif',
-          fontWeight: 700,
-          color: '#FFFFFF',
-          fontSize: 'clamp(36px, 5vw, 58px)',
-        }}>
-          Cook anything with
-        </span>
-        <span style={{
-          display: 'block',
-          fontFamily: 'Poppins, sans-serif',
-          fontWeight: 800,
+      {/* Hero text block: badge + heading + subheading */}
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        {/* Badge */}
+        <div style={{
           color: '#F4A623',
-          fontSize: 'clamp(36px, 5vw, 58px)',
+          fontFamily: 'Inter, sans-serif',
+          fontWeight: 500,
+          fontSize: 13,
+          letterSpacing: 2,
+          textTransform: 'uppercase',
+          background: 'rgba(244,166,35,0.15)',
+          border: '1px solid rgba(244,166,35,0.3)',
+          borderRadius: 20,
+          padding: '6px 16px',
+          marginBottom: 24,
         }}>
-          what you have
-        </span>
-      </h1>
+          🇳🇬 Nigerian Recipe Intelligence
+        </div>
 
-      {/* Subheading */}
-      <p style={{
-        fontFamily: 'Inter, sans-serif',
-        fontWeight: 400,
-        color: 'rgba(255,255,255,0.65)',
-        fontSize: 18,
-        maxWidth: 560,
-        lineHeight: 1.7,
-        marginTop: 20,
-      }}>
-        Tell IngredIQ your ingredients and discover authentic Nigerian recipes you can make right now, or let AI suggest international dishes
-      </p>
+        {/* Heading */}
+        <h1 style={{ lineHeight: 1.1, margin: 0 }}>
+          <span style={{
+            display: 'block',
+            fontFamily: 'Poppins, sans-serif',
+            fontWeight: 700,
+            color: '#FFFFFF',
+            fontSize: 'clamp(36px, 5vw, 58px)',
+          }}>
+            Cook anything with
+          </span>
+          <span style={{
+            display: 'block',
+            fontFamily: 'Poppins, sans-serif',
+            fontWeight: 800,
+            color: '#F4A623',
+            fontSize: 'clamp(36px, 5vw, 58px)',
+          }}>
+            what you have
+          </span>
+        </h1>
+
+        {/* Subheading */}
+        <p style={{
+          fontFamily: 'Inter, sans-serif',
+          fontWeight: 400,
+          color: 'rgba(255,255,255,0.65)',
+          fontSize: 18,
+          maxWidth: 560,
+          lineHeight: 1.7,
+          marginTop: 20,
+          marginBottom: 0,
+        }}>
+          Tell IngredIQ your ingredients and discover authentic Nigerian recipes you can make right now, or let AI suggest international dishes
+        </p>
+      </div>
 
       {/* Input Card */}
       <div style={{
