@@ -60,9 +60,8 @@ function Hero({
       background: "linear-gradient(rgba(28,18,8,0.7), rgba(28,18,8,0.85)), url('https://images.unsplash.com/photo-1665332195309-9d75071138f0?w=1600&auto=format&fit=crop') center/cover no-repeat",      display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      justifyContent: 'center',
-      padding: isMobile ? '140px 24px 80px' : '100px 24px 80px',      textAlign: 'center',
-    }}>
+      justifyContent: 'flex-start',
+      padding: isMobile ? '100px 20px 60px' : '120px 24px 80px',    }}>
       {/* Hero text block: badge + heading + subheading */}
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         {/* Badge */}
