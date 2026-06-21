@@ -64,6 +64,17 @@ function Hero({
       padding: isMobile ? '100px 20px 60px' : '120px 24px 80px',    }}>
       {/* Hero text block: badge + heading + subheading */}
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        {/* Badge */}
+        <div style={{
+          fontFamily: 'Inter, sans-serif',
+          fontWeight: 500,
+          fontSize: 13,
+          letterSpacing: 2,
+          textTransform: 'uppercase',
+          marginBottom: 24,
+        }}>
+        </div>
+
         {/* Heading */}
         <h1 style={{ lineHeight: 1.1, margin: 0 }}>
           <span style={{
