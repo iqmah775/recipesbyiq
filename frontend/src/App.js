@@ -9,7 +9,7 @@ import RecipeModal from './components/RecipeModal';
 import SavedRecipesModal from './components/SavedRecipesModal';
 import Footer from './components/Footer';
 
-const API = 'http://127.0.0.1:8000/api/v1';
+const API = 'https://recipesbyiq.onrender.com/api/v1';
 
 function App() {
   const [ingredients, setIngredients] = useState([]);

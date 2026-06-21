@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const API = 'http://127.0.0.1:8000/api/v1';
+const API = 'https://recipesbyiq.onrender.com/api/v1';
 
 const DIFF_STYLES = {
   easy:   { background: 'rgba(42,157,143,0.2)',  color: '#2A9D8F' },

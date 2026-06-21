@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import BrowseCard from './BrowseCard';
 
-const API = 'http://127.0.0.1:8000/api/v1';
+const API = 'https://recipesbyiq.onrender.com/api/v1';
 const REGIONS = ['all', 'yoruba', 'igbo', 'hausa', 'south_south', 'modern'];
 
 function BrowseSection({ libraryRecipes, selectedRegion, searchQuery, onRegionChange, onSearchChange, onSelectRecipe }) {
