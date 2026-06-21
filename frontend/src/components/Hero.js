@@ -60,27 +60,10 @@ function Hero({
       background: "linear-gradient(rgba(28,18,8,0.7), rgba(28,18,8,0.85)), url('https://images.unsplash.com/photo-1665332195309-9d75071138f0?w=1600&auto=format&fit=crop') center/cover no-repeat",      display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      justifyContent: 'flex-start',
+      justifyContent: 'center',
       padding: isMobile ? '100px 20px 60px' : '120px 24px 80px',    }}>
       {/* Hero text block: badge + heading + subheading */}
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        {/* Badge */}
-        <div style={{
-          color: '#F4A623',
-          fontFamily: 'Inter, sans-serif',
-          fontWeight: 500,
-          fontSize: 13,
-          letterSpacing: 2,
-          textTransform: 'uppercase',
-          background: 'rgba(244,166,35,0.15)',
-          border: '1px solid rgba(244,166,35,0.3)',
-          borderRadius: 20,
-          padding: '6px 16px',
-          marginBottom: 24,
-        }}>
-          🇳🇬 Nigerian Recipe Intelligence
-        </div>
-
         {/* Heading */}
         <h1 style={{ lineHeight: 1.1, margin: 0 }}>
           <span style={{
