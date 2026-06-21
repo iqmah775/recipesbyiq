@@ -6,13 +6,13 @@ const STEPS = [
     num: '01',
     Icon: UtensilsCrossed,
     title: 'Add your ingredients',
-    desc: 'Type in whatever ingredients you have at home. Add as many as you like — even a partial pantry works.',
+    desc: 'Type in whatever ingredients you have at home. Add as many as you like, even a partial pantry works.',
   },
   {
     num: '02',
     Icon: SlidersHorizontal,
     title: 'Set your preferences',
-    desc: 'Choose your cuisine type — browse traditional Nigerian dishes or let AI suggest international recipes.',
+    desc: 'Choose your cuisine type, browse traditional Nigerian dishes or let AI suggest international recipes.',
   },
   {
     num: '03',

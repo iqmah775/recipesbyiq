@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const DIETARY_CHIPS = [
   { value: 'diabetic',          icon: '🩺', label: 'Diabetic' },
@@ -37,6 +37,14 @@ function Hero({
   onDietaryChange,
   onFindRecipes,
 }) {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const toggleRestriction = (value) => {
     onDietaryChange(prev =>
       prev.includes(value) ? prev.filter(r => r !== value) : [...prev, value]
@@ -53,7 +61,7 @@ function Hero({
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '120px 24px 80px',
+      padding: isMobile ? '100px 24px 80px' : '120px 24px 80px',
       textAlign: 'center',
     }}>
       {/* Badge */}
@@ -105,7 +113,7 @@ function Hero({
         lineHeight: 1.7,
         marginTop: 20,
       }}>
-        Tell RecipesByIQ your ingredients and discover authentic Nigerian recipes you can make right now — or let AI suggest international dishes
+        Tell IngredIQ your ingredients and discover authentic Nigerian recipes you can make right now, or let AI suggest international dishes
       </p>
 
       {/* Input Card */}

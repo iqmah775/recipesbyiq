@@ -71,7 +71,7 @@ function RecipeModal({ recipe, onClose }) {
       });
       setSaved(true);
     } catch {
-      setSaveError('Failed to save — try again');
+      setSaveError('Failed to save, try again');
     } finally {
       setSaving(false);
     }

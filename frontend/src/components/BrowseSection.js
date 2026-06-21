@@ -203,7 +203,7 @@ function BrowseSection({ libraryRecipes, selectedRegion, searchQuery, onRegionCh
               fontWeight: 500,
             }}>
               {searchPhase === 'ai'
-                ? 'Not found locally — asking AI…'
+                ? 'Not found locally, asking AI…'
                 : 'Searching our database…'}
             </p>
           </div>
@@ -276,7 +276,7 @@ function BrowseSection({ libraryRecipes, selectedRegion, searchQuery, onRegionCh
                   padding: '7px 16px',
                   display: 'inline-block',
                 }}>
-                  ✨ No matches in our library — showing AI suggestions for "{searchQuery}"
+                  ✨ No matches in our library, showing AI suggestions for "{searchQuery}"
                 </span>
               </div>
             )}
