@@ -22,24 +22,37 @@ const STEPS = [
   },
 ];
 
-function HowItWorks() {
+function HowItWorks({ darkMode }) {
+  const t = {
+    bg: darkMode ? '#1C1208' : '#FFF8F0',
+    heading: darkMode ? '#FFFFFF' : '#1C1208',
+    subtext: darkMode ? 'rgba(255,255,255,0.55)' : 'rgba(28,18,8,0.55)',
+    cardBg: darkMode ? '#2A1F0E' : 'rgba(255,245,230,0.9)',
+    cardBorder: darkMode ? '#3D2E14' : '#E8D5B0',
+    stepNum: darkMode ? 'rgba(244,166,35,0.15)' : 'rgba(244,166,35,0.25)',
+    cardTitle: darkMode ? '#FFFFFF' : '#1C1208',
+    cardDesc: darkMode ? 'rgba(255,255,255,0.55)' : 'rgba(28,18,8,0.55)',
+  };
+
   return (
-    <section style={{ background: '#1C1208', padding: '96px 48px' }}>
+    <section style={{ background: t.bg, padding: '96px 48px', transition: 'background 0.3s' }}>
       <div style={{ textAlign: 'center' }}>
         <h2 style={{
           fontFamily: 'Poppins, sans-serif',
           fontWeight: 700,
-          color: '#FFFFFF',
+          color: t.heading,
           fontSize: 40,
+          transition: 'color 0.3s',
         }}>
           How it works
         </h2>
         <p style={{
           fontFamily: 'Inter, sans-serif',
           fontWeight: 400,
-          color: 'rgba(255,255,255,0.55)',
+          color: t.subtext,
           fontSize: 17,
           marginTop: 12,
+          transition: 'color 0.3s',
         }}>
           Three steps from your kitchen to your plate
         </p>
@@ -55,8 +68,8 @@ function HowItWorks() {
       }}>
         {STEPS.map(({ num, Icon, title, desc }) => (
           <div key={num} style={{
-            background: '#2A1F0E',
-            border: '1px solid #3D2E14',
+            background: t.cardBg,
+            border: `1px solid ${t.cardBorder}`,
             borderRadius: 20,
             padding: '40px 32px',
             textAlign: 'center',
@@ -65,14 +78,16 @@ function HowItWorks() {
             alignItems: 'center',
             flex: '1 1 280px',
             maxWidth: 300,
+            transition: 'background 0.3s, border-color 0.3s',
           }}>
             <div style={{
               fontFamily: 'Poppins, sans-serif',
               fontWeight: 700,
-              color: 'rgba(244,166,35,0.15)',
+              color: t.stepNum,
               fontSize: 52,
               lineHeight: 1,
               marginBottom: 8,
+              transition: 'color 0.3s',
             }}>
               {num}
             </div>
@@ -91,20 +106,22 @@ function HowItWorks() {
             <h3 style={{
               fontFamily: 'Poppins, sans-serif',
               fontWeight: 600,
-              color: '#FFFFFF',
+              color: t.cardTitle,
               fontSize: 18,
               marginTop: 12,
+              transition: 'color 0.3s',
             }}>
               {title}
             </h3>
             <p style={{
               fontFamily: 'Inter, sans-serif',
               fontWeight: 400,
-              color: 'rgba(255,255,255,0.55)',
+              color: t.cardDesc,
               fontSize: 14,
               lineHeight: 1.7,
               marginTop: 8,
               maxWidth: 220,
+              transition: 'color 0.3s',
             }}>
               {desc}
             </p>

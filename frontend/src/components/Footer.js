@@ -1,6 +1,7 @@
 import React from 'react';
 
-function SocialLink({ href, children }) {
+function SocialLink({ href, children, darkMode }) {
+  const color = darkMode ? 'rgba(255,255,255,0.5)' : 'rgba(28,18,8,0.5)';
   return (
     <a
       href={href}
@@ -13,21 +14,29 @@ function SocialLink({ href, children }) {
         fontFamily: 'Inter, sans-serif',
         fontWeight: 500,
         fontSize: 14,
-        color: 'rgba(255,255,255,0.5)',
+        color,
         textDecoration: 'none',
         transition: 'color 0.2s',
       }}
       onMouseOver={e => { e.currentTarget.style.color = '#F4A623'; }}
-      onMouseOut={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.5)'; }}
+      onMouseOut={e => { e.currentTarget.style.color = color; }}
     >
       {children}
     </a>
   );
 }
 
-function Footer() {
+function Footer({ darkMode }) {
+  const t = {
+    bg: darkMode ? '#120D05' : '#FFF0E0',
+    subtext: darkMode ? 'rgba(255,255,255,0.4)' : 'rgba(28,18,8,0.5)',
+    border: darkMode ? '#3D2E14' : '#E8D5B0',
+    founder: darkMode ? 'rgba(255,255,255,0.5)' : 'rgba(28,18,8,0.6)',
+    copyright: darkMode ? 'rgba(255,255,255,0.2)' : 'rgba(28,18,8,0.3)',
+  };
+
   return (
-    <footer style={{ background: '#120D05', padding: '48px 24px', textAlign: 'center' }}>
+    <footer style={{ background: t.bg, padding: '48px 24px', textAlign: 'center', transition: 'background 0.3s' }}>
       <div style={{
         fontFamily: 'Poppins, sans-serif',
         fontWeight: 700,
@@ -40,32 +49,35 @@ function Footer() {
       <p style={{
         fontFamily: 'Inter, sans-serif',
         fontWeight: 400,
-        color: 'rgba(255,255,255,0.4)',
+        color: t.subtext,
         fontSize: 14,
         marginTop: 8,
+        transition: 'color 0.3s',
       }}>
         Cook smarter with what you have
       </p>
 
       <div style={{
         height: 1,
-        background: '#3D2E14',
+        background: t.border,
         margin: '24px auto',
         maxWidth: 300,
+        transition: 'background 0.3s',
       }} />
 
       <p style={{
         fontFamily: 'Inter, sans-serif',
         fontWeight: 500,
-        color: 'rgba(255,255,255,0.5)',
+        color: t.founder,
         fontSize: 13,
         marginBottom: 16,
+        transition: 'color 0.3s',
       }}>
         Founded by Iqmah
       </p>
 
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 24, flexWrap: 'wrap' }}>
-        <SocialLink href="mailto:iqmahoseni@gmail.com">
+        <SocialLink href="mailto:iqmahoseni@gmail.com" darkMode={darkMode}>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <rect x="2" y="4" width="20" height="16" rx="2" />
             <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
@@ -73,7 +85,7 @@ function Footer() {
           iqmahoseni@gmail.com
         </SocialLink>
 
-        <SocialLink href="https://instagram.com/iqmahosenii">
+        <SocialLink href="https://instagram.com/iqmahosenii" darkMode={darkMode}>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <rect x="2" y="2" width="20" height="20" rx="5" />
             <circle cx="12" cy="12" r="4" />
@@ -82,7 +94,7 @@ function Footer() {
           @iqmahosenii
         </SocialLink>
 
-        <SocialLink href="https://tiktok.com/@iqmahoseni">
+        <SocialLink href="https://tiktok.com/@iqmahoseni" darkMode={darkMode}>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
             <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.22 8.22 0 0 0 4.81 1.54V6.78a4.85 4.85 0 0 1-1.04-.09z" />
           </svg>
@@ -92,16 +104,18 @@ function Footer() {
 
       <div style={{
         height: 1,
-        background: '#3D2E14',
+        background: t.border,
         margin: '24px auto',
         maxWidth: 300,
+        transition: 'background 0.3s',
       }} />
 
       <p style={{
         fontFamily: 'Inter, sans-serif',
         fontWeight: 400,
-        color: 'rgba(255,255,255,0.2)',
+        color: t.copyright,
         fontSize: 12,
+        transition: 'color 0.3s',
       }}>
         Built with ❤️ for Nigerian food lovers
       </p>

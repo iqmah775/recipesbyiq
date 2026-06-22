@@ -36,6 +36,7 @@ function Hero({
   onCuisineChange,
   onDietaryChange,
   onFindRecipes,
+  darkMode,
 }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
@@ -54,14 +55,33 @@ function Hero({
     if (e.key === 'Enter') onAddIngredient();
   };
 
+  const t = {
+    overlay: darkMode
+      ? 'linear-gradient(rgba(28,18,8,0.7), rgba(28,18,8,0.85))'
+      : 'linear-gradient(rgba(255,248,240,0.75), rgba(255,248,240,0.75))',
+    heading: darkMode ? '#FFFFFF' : '#1C1208',
+    subtext: darkMode ? 'rgba(255,255,255,0.65)' : 'rgba(28,18,8,0.7)',
+    cardBg: darkMode ? 'rgba(42, 31, 14, 0.9)' : 'rgba(255,245,230,0.95)',
+    cardBorder: darkMode ? '#3D2E14' : '#E8D5B0',
+    inputColor: darkMode ? '#FFFFFF' : '#1C1208',
+    selectColor: darkMode ? 'rgba(255,255,255,0.6)' : 'rgba(28,18,8,0.5)',
+    proofText: darkMode ? 'rgba(255,255,255,0.4)' : 'rgba(28,18,8,0.4)',
+    chipInactiveBorder: darkMode ? '#3D2E14' : '#E8D5B0',
+    chipInactiveColor: darkMode ? 'rgba(255,255,255,0.5)' : 'rgba(28,18,8,0.5)',
+  };
+
   return (
     <section style={{
       minHeight: '100vh',
-      background: "linear-gradient(rgba(28,18,8,0.7), rgba(28,18,8,0.85)), url('https://images.unsplash.com/photo-1665332195309-9d75071138f0?w=1600&auto=format&fit=crop') center/cover no-repeat",      display: 'flex',
+      background: `${t.overlay}, url('https://images.unsplash.com/photo-1665332195309-9d75071138f0?w=1600&auto=format&fit=crop') center/cover no-repeat`,
+      display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: isMobile ? '100px 20px 60px' : '120px 24px 80px',    }}>
+      padding: isMobile ? '100px 20px 60px' : '120px 24px 80px',
+      textAlign: 'center',
+      transition: 'background 0.3s',
+    }}>
       {/* Hero text block: badge + heading + subheading */}
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         {/* Badge */}
@@ -81,8 +101,9 @@ function Hero({
             display: 'block',
             fontFamily: 'Poppins, sans-serif',
             fontWeight: 700,
-            color: '#FFFFFF',
+            color: t.heading,
             fontSize: 'clamp(36px, 5vw, 58px)',
+            transition: 'color 0.3s',
           }}>
             Cook anything with
           </span>
@@ -101,12 +122,13 @@ function Hero({
         <p style={{
           fontFamily: 'Inter, sans-serif',
           fontWeight: 400,
-          color: 'rgba(255,255,255,0.65)',
+          color: t.subtext,
           fontSize: 18,
           maxWidth: 560,
           lineHeight: 1.7,
           marginTop: 20,
           marginBottom: 0,
+          transition: 'color 0.3s',
         }}>
           Tell IngredIQ your ingredients and discover authentic Nigerian recipes you can make right now, or let AI suggest international dishes
         </p>
@@ -114,8 +136,8 @@ function Hero({
 
       {/* Input Card */}
       <div style={{
-        background: 'rgba(42, 31, 14, 0.9)',
-        border: '1px solid #3D2E14',
+        background: t.cardBg,
+        border: `1px solid ${t.cardBorder}`,
         borderRadius: 20,
         padding: 24,
         maxWidth: 580,
@@ -123,6 +145,7 @@ function Hero({
         margin: '40px auto 0',
         backdropFilter: 'blur(10px)',
         WebkitBackdropFilter: 'blur(10px)',
+        transition: 'background 0.3s, border-color 0.3s',
       }}>
         {/* Text input row */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
@@ -135,11 +158,13 @@ function Hero({
               flex: 1,
               background: 'transparent',
               border: 'none',
-              color: '#FFFFFF',
+              color: t.inputColor,
               fontSize: 17,
               fontFamily: 'Inter, sans-serif',
               fontWeight: 400,
               padding: '8px 0',
+              outline: 'none',
+              transition: 'color 0.3s',
             }}
           />
           <button
@@ -165,7 +190,7 @@ function Hero({
         </div>
 
         {/* Divider */}
-        <div style={{ height: 1, background: '#3D2E14', margin: '14px 0' }} />
+        <div style={{ height: 1, background: t.cardBorder, margin: '14px 0', transition: 'background 0.3s' }} />
 
         {/* Ingredient tags */}
         {ingredients.length > 0 && (
@@ -211,13 +236,15 @@ function Hero({
           onChange={e => onCuisineChange(e.target.value)}
           style={{
             background: 'transparent',
-            color: 'rgba(255,255,255,0.6)',
+            color: t.selectColor,
             border: 'none',
             fontFamily: 'Inter, sans-serif',
             fontWeight: 400,
             fontSize: 15,
             cursor: 'pointer',
             width: '100%',
+            outline: 'none',
+            transition: 'color 0.3s',
           }}
         >
           {CUISINES.map(c => (
@@ -230,10 +257,11 @@ function Hero({
           <span style={{
             fontFamily: 'Inter, sans-serif',
             fontWeight: 400,
-            color: 'rgba(255,255,255,0.5)',
+            color: t.chipInactiveColor,
             fontSize: 13,
             display: 'block',
             marginBottom: 8,
+            transition: 'color 0.3s',
           }}>
             Dietary needs:
           </span>
@@ -246,8 +274,8 @@ function Hero({
                   onClick={() => toggleRestriction(chip.value)}
                   style={{
                     background: selected ? 'rgba(244,166,35,0.15)' : 'transparent',
-                    border: selected ? '1px solid rgba(244,166,35,0.4)' : '1px solid #3D2E14',
-                    color: selected ? '#F4A623' : 'rgba(255,255,255,0.5)',
+                    border: selected ? '1px solid rgba(244,166,35,0.4)' : `1px solid ${t.chipInactiveBorder}`,
+                    color: selected ? '#F4A623' : t.chipInactiveColor,
                     borderRadius: 20,
                     padding: '5px 12px',
                     fontFamily: 'Inter, sans-serif',
@@ -266,9 +294,9 @@ function Hero({
         </div>
 
         {/* Divider */}
-        <div style={{ height: 1, background: '#3D2E14', margin: '16px 0 12px' }} />
+        <div style={{ height: 1, background: t.cardBorder, margin: '16px 0 12px', transition: 'background 0.3s' }} />
 
-        {/* Find button — full width */}
+        {/* Find button */}
         <button
           onClick={onFindRecipes}
           disabled={ingredients.length === 0 || loading}
@@ -311,13 +339,14 @@ function Hero({
         )}
       </div>
 
-      {/* Social proof line */}
+      {/* Social proof */}
       <p style={{
-        color: 'rgba(255,255,255,0.4)',
+        color: t.proofText,
         fontFamily: 'Inter, sans-serif',
         fontWeight: 400,
         fontSize: 13,
         marginTop: 18,
+        transition: 'color 0.3s',
       }}>
         ✓ Traditional Nigerian recipes &nbsp;·&nbsp; ✓ AI-powered suggestions &nbsp;·&nbsp; ✓ Free to use
       </p>

@@ -25,6 +25,8 @@ function App() {
   const [dietaryRestrictions, setDietaryRestrictions] = useState([]);
   const [showSavedModal, setShowSavedModal] = useState(false);
   const [savedRecipeNames, setSavedRecipeNames] = useState([]);
+  const [darkMode, setDarkMode] = useState(true);
+  const toggleDarkMode = () => setDarkMode(v => !v);
 
   useEffect(() => {
     loadLibrary();
@@ -119,13 +121,15 @@ function App() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', background: '#1C1208' }}>
+    <div style={{ minHeight: '100vh', background: darkMode ? '#1C1208' : '#FFF8F0', transition: 'background 0.3s' }}>
       <Navbar
         onGetStarted={scrollToTop}
         onBrowse={scrollToBrowse}
         onSavedClick={() => setShowSavedModal(true)}
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
+        darkMode={darkMode}
+        onToggleDarkMode={toggleDarkMode}
       />
 
       <Hero
@@ -141,6 +145,7 @@ function App() {
         onCuisineChange={setCuisinePreference}
         onDietaryChange={setDietaryRestrictions}
         onFindRecipes={findRecipes}
+        darkMode={darkMode}
       />
 
       {(results || loading) && (
@@ -156,7 +161,7 @@ function App() {
         </div>
       )}
 
-      {!results && !loading && <HowItWorks />}
+      {!results && !loading && <HowItWorks darkMode={darkMode} />}
 
       <BrowseSection
         libraryRecipes={libraryRecipes}
@@ -165,9 +170,10 @@ function App() {
         onRegionChange={setSelectedRegion}
         onSearchChange={setSearchQuery}
         onSelectRecipe={setSelectedRecipe}
+        darkMode={darkMode}
       />
 
-      <Footer />
+      <Footer darkMode={darkMode} />
 
       {selectedRecipe && (
         <RecipeModal recipe={selectedRecipe} onClose={() => setSelectedRecipe(null)} />

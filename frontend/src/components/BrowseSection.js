@@ -5,9 +5,9 @@ import BrowseCard from './BrowseCard';
 const API = 'https://recipesbyiq.onrender.com/api/v1';
 const REGIONS = ['all', 'yoruba', 'igbo', 'hausa', 'south_south', 'modern'];
 
-function BrowseSection({ libraryRecipes, selectedRegion, searchQuery, onRegionChange, onSearchChange, onSelectRecipe }) {
+function BrowseSection({ libraryRecipes, selectedRegion, searchQuery, onRegionChange, onSearchChange, onSelectRecipe, darkMode }) {
   const [isInputBusy, setIsInputBusy] = useState(false);
-  const [searchPhase, setSearchPhase] = useState(null); // null | 'ai'
+  const [searchPhase, setSearchPhase] = useState(null);
   const [dbResults, setDbResults] = useState([]);
   const [aiResults, setAiResults] = useState([]);
   const debounceRef = useRef(null);
@@ -90,22 +90,36 @@ function BrowseSection({ libraryRecipes, selectedRegion, searchQuery, onRegionCh
     displayRecipes = [];
   }
 
+  const t = {
+    bg: darkMode ? '#1F1509' : '#FFF8F0',
+    heading: darkMode ? '#FFFFFF' : '#1C1208',
+    subtext: darkMode ? 'rgba(255,255,255,0.5)' : 'rgba(28,18,8,0.6)',
+    border: darkMode ? '#3D2E14' : '#E8D5B0',
+    inputBg: darkMode ? '#2A1F0E' : 'rgba(255,245,230,0.9)',
+    inputColor: darkMode ? '#FFFFFF' : '#1C1208',
+    pillInactiveColor: darkMode ? 'rgba(255,255,255,0.5)' : 'rgba(28,18,8,0.6)',
+    emptyText: darkMode ? 'rgba(255,255,255,0.3)' : 'rgba(28,18,8,0.4)',
+    stateHeading: darkMode ? '#FFFFFF' : '#1C1208',
+  };
+
   return (
-    <section id="browse-section" style={{ background: '#1F1509', padding: '80px 48px' }}>
+    <section id="browse-section" style={{ background: t.bg, padding: '80px 48px', transition: 'background 0.3s' }}>
       <div style={{ textAlign: 'center' }}>
         <h2 style={{
           fontFamily: 'Poppins, sans-serif',
           fontWeight: 700,
-          color: '#FFFFFF',
+          color: t.heading,
           fontSize: 36,
+          transition: 'color 0.3s',
         }}>
           Browse Nigerian Recipes
         </h2>
         <p style={{
           fontFamily: 'Inter, sans-serif',
-          color: 'rgba(255,255,255,0.5)',
+          color: t.subtext,
           fontSize: 16,
           marginTop: 12,
+          transition: 'color 0.3s',
         }}>
           Explore our verified collection of traditional dishes
         </p>
@@ -119,19 +133,20 @@ function BrowseSection({ libraryRecipes, selectedRegion, searchQuery, onRegionCh
           placeholder="Search recipes..."
           style={{
             width: '100%',
-            background: '#2A1F0E',
-            border: '1px solid #3D2E14',
+            background: t.inputBg,
+            border: `1px solid ${t.border}`,
             borderRadius: 12,
             padding: isInputBusy ? '14px 44px 14px 20px' : '14px 20px',
-            color: '#FFFFFF',
+            color: t.inputColor,
             fontFamily: 'Inter, sans-serif',
             fontWeight: 400,
             fontSize: 15,
-            transition: 'border-color 0.2s',
+            transition: 'border-color 0.2s, background 0.3s',
             boxSizing: 'border-box',
+            outline: 'none',
           }}
           onFocus={e => { e.currentTarget.style.borderColor = '#E76F51'; }}
-          onBlur={e => { e.currentTarget.style.borderColor = '#3D2E14'; }}
+          onBlur={e => { e.currentTarget.style.borderColor = t.border; }}
         />
         {isInputBusy && (
           <div style={{
@@ -164,8 +179,8 @@ function BrowseSection({ libraryRecipes, selectedRegion, searchQuery, onRegionCh
             onClick={() => onRegionChange(region)}
             style={{
               background: selectedRegion === region ? '#E76F51' : 'transparent',
-              color: selectedRegion === region ? '#FFFFFF' : 'rgba(255,255,255,0.5)',
-              border: selectedRegion === region ? 'none' : '1px solid #3D2E14',
+              color: selectedRegion === region ? '#FFFFFF' : t.pillInactiveColor,
+              border: selectedRegion === region ? 'none' : `1px solid ${t.border}`,
               fontFamily: 'Inter, sans-serif',
               fontWeight: 500,
               fontSize: 14,
@@ -184,7 +199,6 @@ function BrowseSection({ libraryRecipes, selectedRegion, searchQuery, onRegionCh
       {/* Recipe grid / loading / empty states */}
       <div style={{ maxWidth: 1200, margin: '40px auto 0' }}>
         {isSearchActive && isInputBusy ? (
-          /* Loading state */
           <div style={{ textAlign: 'center', padding: '64px 0' }}>
             <div style={{
               width: 40,
@@ -208,23 +222,24 @@ function BrowseSection({ libraryRecipes, selectedRegion, searchQuery, onRegionCh
             </p>
           </div>
         ) : isSearchActive && !isInputBusy && displayRecipes.length === 0 ? (
-          /* Empty state — both DB and AI returned nothing */
           <div style={{ textAlign: 'center', padding: '64px 0' }}>
             <div style={{ fontSize: 48 }}>🍽️</div>
             <h3 style={{
               fontFamily: 'Poppins, sans-serif',
               fontWeight: 600,
-              color: '#FFFFFF',
+              color: t.stateHeading,
               fontSize: 20,
               marginTop: 16,
+              transition: 'color 0.3s',
             }}>
               No recipes found
             </h3>
             <p style={{
               fontFamily: 'Inter, sans-serif',
-              color: 'rgba(255,255,255,0.5)',
+              color: t.subtext,
               fontSize: 14,
               marginTop: 8,
+              transition: 'color 0.3s',
             }}>
               Our library and AI couldn't find a match for "{searchQuery}"
             </p>
@@ -253,9 +268,10 @@ function BrowseSection({ libraryRecipes, selectedRegion, searchQuery, onRegionCh
           <p style={{
             textAlign: 'center',
             fontFamily: 'Inter, sans-serif',
-            color: 'rgba(255,255,255,0.3)',
+            color: t.emptyText,
             fontSize: 15,
             padding: '48px 0',
+            transition: 'color 0.3s',
           }}>
             {libraryRecipes.length === 0
               ? 'No recipes in library yet. Add some via the API!'
@@ -263,18 +279,18 @@ function BrowseSection({ libraryRecipes, selectedRegion, searchQuery, onRegionCh
           </p>
         ) : (
           <>
-            {/* AI banner shown above grid when results come from AI */}
             {sourceIsAI && (
               <div style={{ marginBottom: 24, textAlign: 'center' }}>
                 <span style={{
                   background: 'rgba(244,166,35,0.1)',
                   border: '1px solid rgba(244,166,35,0.25)',
-                  color: 'rgba(255,255,255,0.6)',
+                  color: darkMode ? 'rgba(255,255,255,0.6)' : 'rgba(28,18,8,0.7)',
                   fontFamily: 'Inter, sans-serif',
                   fontSize: 13,
                   borderRadius: 8,
                   padding: '7px 16px',
                   display: 'inline-block',
+                  transition: 'color 0.3s',
                 }}>
                   ✨ No matches in our library, showing AI suggestions for "{searchQuery}"
                 </span>
